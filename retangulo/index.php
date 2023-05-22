@@ -1,9 +1,11 @@
-<?php 
-class Retangulo {
+<?php
+class Retangulo
+{
     private $base;
     private $altura;
 
-    public function setBase($base) {
+    public function setBase($base)
+    {
         if (is_numeric($base) && $base > 0) {
             $this->base = $base;
         } else {
@@ -11,7 +13,8 @@ class Retangulo {
         }
     }
 
-    public function setAltura($altura) {
+    public function setAltura($altura)
+    {
         if (is_numeric($altura) && $altura > 0) {
             $this->altura = $altura;
         } else {
@@ -19,12 +22,22 @@ class Retangulo {
         }
     }
 
-    public function calcularArea() {
-        return $this->base * $this->altura;
+    public function calcularArea()
+    {
+        if ($this->base && $this->altura) {
+            echo "Área do retângulo: " . $this->base * $this->altura . "<br>";
+        } else {
+            echo "";
+        }
     }
 
-    public function calcularPerimetro() {
-        return 2 * ($this->base + $this->altura);
+    public function calcularPerimetro()
+    {
+        if ($this->base && $this->altura) {
+            echo "Perímetro do retângulo: " . 2 * ($this->base + $this->altura) . "<br>";
+        } else {
+            echo "";
+        }
     }
 }
 
@@ -32,13 +45,13 @@ class Retangulo {
 $retangulo = new Retangulo();
 
 try {
-    // Definindo uma base e altura inválidas para o retângulo
-    $retangulo->setBase("abc");
-    $retangulo->setAltura(-10);
+    // Definindo uma base e altura para o retângulo
+    $retangulo->setBase(10);
+    $retangulo->setAltura(10);
 } catch (Exception $e) {
     echo "Erro: " . $e->getMessage();
 }
 
 // Calculando a área e o perímetro do retângulo
-echo "Área do retângulo: " . $retangulo->calcularArea() . "\n";
-echo "Perímetro do retângulo: " . $retangulo->calcularPerimetro();
+echo  $retangulo->calcularArea();
+echo  $retangulo->calcularPerimetro();

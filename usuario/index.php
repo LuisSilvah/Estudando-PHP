@@ -26,7 +26,7 @@ class Usuario
 $usuario = new Usuario();
 
 try {
-    // Definindo um nome e uma idade inválida para o usuário
+    // Definindo uma idade para o usuário
     $usuario->setidade("abc");
 } catch (Exception $e) {
     echo "Erro: " . $e->getMessage();
