@@ -8,5 +8,5 @@ $lampada = new Lampada("Lenovo", "200W");
 $interruptor = new Interruptor();
 
 //2ª Etapa: Acender a Luz
-$interruptor->AcenderLuz(0, $lampada);
+$interruptor->AcenderLuz(15, $lampada);
 
