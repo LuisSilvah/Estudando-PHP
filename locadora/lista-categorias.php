@@ -1,7 +1,7 @@
 <h2>Lista de Categorias</h2>
-<div>
+<div class="btn-action">
     <a href="index.php?menu=cad-categorias">Cadastrar nova Categoria</a>
-</div>
+
 <div>
     <?php
     if (isset($_POST["txtPesquisa"])){
@@ -17,6 +17,7 @@
           OK
         </button>
     </form>
+</div>
 </div>
 <table border="1">
   <thead>
@@ -38,12 +39,12 @@
             <td><?= $dados["idCategoria"] ?></td>
             <td><?= $dados["nomeCategoria"] ?></td>
             <td>
-                <a href="index.php?menu=editar-categorias&idCategoria=<?=$dados["idCategoria"]?>">
+                <a class="btn-function"  href="index.php?menu=editar-categorias&idCategoria=<?=$dados["idCategoria"]?>">
                 Editar
                 </a>
             </td>
             <td>
-                <a href="index.php?menu=excluir-categorias&idCategoria=<?=$dados["idCategoria"]?>">
+                <a class="btn-function"  href="index.php?menu=excluir-categorias&idCategoria=<?=$dados["idCategoria"]?>">
                  Excluir
                 </a>
             </td>

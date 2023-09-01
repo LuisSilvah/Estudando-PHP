@@ -44,8 +44,36 @@
         text-decoration: none;
     }
 
+    .home_view {
+        margin-top: 60px;
+        text-align: center;
+    }
+
     .btn-action {
-        padding: 5px 10px;
+        margin: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .btn-action a {
+        padding: 10px 15px;
+        border: 1px #fff;
+        border-radius: 10px;
+        border-style: solid;
+        font-weight: 800;
+
+        background-color: #252B48;
+    }
+
+    .btn-function {
+        background-color: #252B48;
+        padding: 2px 10px;
+    }
+
+    table {
+        margin: 20px auto;
+        border-color: #fff;
     }
 
 

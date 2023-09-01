@@ -1,7 +1,7 @@
 <h2>Lista de Clientes</h2>
-<div>
+<div class="btn-action">
     <a href="index.php?menu=cad-clientes">Cadastrar novo Cliente</a>
-</div>
+
 <div>
     <?php
     if (isset ($_POST["txtPesquisa"])) {
@@ -16,6 +16,8 @@
         <button type="submit">OK</button>
     </form>
 </div>
+
+</div>
 <table border="1">
     <thead>
         <tr>
@@ -23,6 +25,7 @@
             <th>Nome do Cliente</th>
             <th>Telefone</th>
             <th>E-mail</th>
+            <th>Status</th>
             <th>Editar</th>
             <th>Excluir</th>
         </tr>
@@ -49,12 +52,12 @@ while ($dados = mysqli_fetch_assoc($rs)){
         <td><?= $dados["emailCliente"] ?></td>
         <td><?= $dados["statusCliente"] ?></td>
         <td>
-                <a href="index.php?menu=editar-clientes&idCliente=<?=$dados["idCliente"]?>">
+                <a  class="btn-function"  href="index.php?menu=editar-clientes&idCliente=<?=$dados["idCliente"]?>">
                 Editar
                 </a>
             </td>
             <td>
-                <a href="index.php?menu=excluir-clientes&idCliente=<?=$dados["idCliente"]?>">
+                <a class="btn-function"  href="index.php?menu=excluir-clientes&idCliente=<?=$dados["idCliente"]?>">
                  Excluir
                 </a>
         </td>

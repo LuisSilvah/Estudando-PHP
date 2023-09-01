@@ -1,20 +1,21 @@
 <h2>Lista de Vídeos</h2>
-<div>
+<div class="btn-action">
     <a href="index.php?menu=cad-videos">Cadastrar novo vídeo</a>
-</div>
-<div>
-    <?php
-    if (isset ($_POST["txtPesquisa"])) {
-        $txtPesquisa = $_POST["txtPesquisa"];
-    } else {
-        $txtPesquisa = "";
-    }
-    ?>
-    <form action="" method="post">
-        <label for="txtPesquisa">Pesquisar</label>
-        <input type="search" name="txtPesquisa" id="txtPesquisa" value="<?=$txtPesquisa?>">
-        <button type="submit">Ok</button>
-    </form>
+
+    <div>
+        <?php
+        if (isset($_POST["txtPesquisa"])) {
+            $txtPesquisa = $_POST["txtPesquisa"];
+        } else {
+            $txtPesquisa = "";
+        }
+        ?>
+        <form action="" method="post">
+            <label for="txtPesquisa">Pesquisar</label>
+            <input type="search" name="txtPesquisa" id="txtPesquisa" value="<?= $txtPesquisa ?>" placeholder="Pesquisar">
+            <button type="submit">Ok</button>
+        </form>
+    </div>
 </div>
 <table border="1">
     <thead>
@@ -30,7 +31,7 @@
         </tr>
     </thead>
     <tbody>
-    <?php
+        <?php
         $sql = "SELECT f.idFilme,tituloFilme, duracaoFilme,valorLocacao,nomeCategoria,
         CASE
             WHEN statusFilme = 0 THEN 'Disponivel'
@@ -43,30 +44,30 @@
         tbcategorias as c on f.idCategoria = c.idCategoria
         where tituloFilme like '%{$txtPesquisa}%'
          order by tituloFilme";
-$rs = mysqli_query($conexao, $sql);
-while ($dados = mysqli_fetch_assoc($rs)){
-?>
-    <tr>
-        <td><?= $dados["idFilme"] ?></td>
-        <td><?= $dados["tituloFilme"] ?></td>
-        <td><?= $dados["duracaoFilme"] ?></td>
-        <td><?= $dados["valorLocacao"] ?></td>
-        <td><?= $dados["nomeCategoria"] ?></td>
-        <td><?= $dados["statusLocacao"] ?></td>
-        <td>
-            <a href="index.php?menu=editar-videos&idFilme=<?=$dados["idFilme"]?>">
-                Editar 
-            </a>
-        </td>
-        <td>
-            <a href="index.php?menu=excluir-videos&idFilme=<?=$dados["idFilme"]?>">
-            Excluir
-             </a>
-        </td>
-    </tr>
-    <?php
-    }
-    ?>
+        $rs = mysqli_query($conexao, $sql);
+        while ($dados = mysqli_fetch_assoc($rs)) {
+        ?>
+            <tr>
+                <td><?= $dados["idFilme"] ?></td>
+                <td><?= $dados["tituloFilme"] ?></td>
+                <td><?= $dados["duracaoFilme"] ?></td>
+                <td><?= $dados["valorLocacao"] ?></td>
+                <td><?= $dados["nomeCategoria"] ?></td>
+                <td><?= $dados["statusLocacao"] ?></td>
+                <td>
+                    <a class="btn-function" href="index.php?menu=editar-videos&idFilme=<?= $dados["idFilme"] ?>">
+                        Editar
+                    </a>
+                </td>
+                <td>
+                    <a class="btn-function" href="index.php?menu=excluir-videos&idFilme=<?= $dados["idFilme"] ?>">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+        <?php
+        }
+        ?>
     </tbody>
 
 </table>
